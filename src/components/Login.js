@@ -4,7 +4,7 @@ import blogService from '../services/blogs'
 
 
 
-const Login = ({ setUser }) => {
+const Login = ({ setUser, setNotification }) => {
 
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
@@ -22,12 +22,23 @@ const Login = ({ setUser }) => {
       setUser(user)
       setUsername('')
       setPassword('')
+      setNotification({
+        body: 'Logged in',
+        isError: false
+      })
     } catch (e) {
-      console.log(e)
-      // setErrorMessage('Wrong credentials')
-      // setTimeout(() => {
-      //   setErrorMessage(null)
-      // }, 5000)
+      setNotification({
+        body: e.response.data.error,
+        isError: true
+      })
+
+    } finally {
+      setTimeout(() => {
+        setNotification({
+          body: null,
+          isError: false
+        })
+      }, 5000)
     }
   }
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import blogServices from '../services/blogs'
-const NewBlog = ({ setBlogs, blogs }) => {
+const NewBlog = ({ setBlogs, blogs, setNotification }) => {
 
   const [title, setTitle] = useState('')
   const [author, setAuthor] = useState('')
@@ -11,8 +11,29 @@ const NewBlog = ({ setBlogs, blogs }) => {
     const newBlog = {
       title, author, url
     }
-    const res = await blogServices.create(newBlog)
-    setBlogs([...blogs, res])
+    try {
+      const res = await blogServices.create(newBlog)
+      setBlogs([...blogs, res])
+      setNotification({
+        body: `New blog ${title} by ${author} added to list`,
+        isError: false
+      })
+      setTitle('')
+      setAuthor('')
+      setUrl('')
+    } catch (e) {
+      setNotification({
+        body: e.response.data.error,
+        isError: true
+      })
+    } finally {
+      setTimeout(() => {
+        setNotification({
+          body: null,
+          isError: false
+        })
+      }, 5000)
+    }
   }
 
   return (

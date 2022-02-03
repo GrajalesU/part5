@@ -1,0 +1,47 @@
+.floating {
+  position: relative;
+}
+
+.notification {
+  position: absolute;
+  background: cadetblue;
+  border-radius: 5px;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 10fr 1fr;
+  width: 30%;
+  left: 50%;
+}
+
+.notification > p {
+  padding-left: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  position: relative;
+}
+
+.notification > button {
+  position: relative;
+  border-radius: 100%;
+  top: calc(80% - 30px);
+  width: 30px;
+  height: 30px;
+  background: rgb(132, 218, 221);
+  border: 0px;
+}
+
+.notification > button:hover {
+  background: rgb(118, 194, 197);
+}
+
+.error {
+  background: red;
+}
+
+.error > button {
+  background: white;
+}
+
+.error > button:hover {
+  background: gray;
+}
