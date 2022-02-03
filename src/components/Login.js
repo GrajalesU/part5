@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import loginService from '../services/login'
 import blogService from '../services/blogs'
 
@@ -23,7 +23,7 @@ const Login = ({ setUser }) => {
       setUsername('')
       setPassword('')
     } catch (e) {
-      console.log(e);
+      console.log(e)
       // setErrorMessage('Wrong credentials')
       // setTimeout(() => {
       //   setErrorMessage(null)
@@ -40,7 +40,8 @@ const Login = ({ setUser }) => {
           value={username}
           name='Username'
           placeholder='username...'
-          onChange={({ target }) => setUsername(target.value)} />
+          onChange={({ target }) => setUsername(target.value)}
+          required />
       </div>
       <div>
         <input
@@ -48,11 +49,12 @@ const Login = ({ setUser }) => {
           value={password}
           name='Password'
           placeholder='password...'
-          onChange={({ target }) => setPassword(target.value)} />
+          onChange={({ target }) => setPassword(target.value)}
+          required />
       </div>
       <button type='submit'>Login</button>
     </form>)
-};
+}
 
 
-export default Login;
+export default Login
