@@ -45,3 +45,10 @@
 .error > button:hover {
   background: gray;
 }
+
+.blog {
+  border: 1px solid black;
+  padding-top: 10px;
+  padding-left: 2px;
+  margin-bottom: 5px;
+}
