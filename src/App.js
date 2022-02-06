@@ -10,6 +10,7 @@ import './App.css'
 const App = () => {
   const [blogs, setBlogs] = useState([])
   const [user, setUser] = useState(null)
+  const [showNewBlog, setShowNewBlog] = useState(false)
   const [notification, setNotification] = useState({
     body: null,
     isError: false
@@ -32,6 +33,9 @@ const App = () => {
 
   }
 
+  const handleNewBlog = () => {
+    setShowNewBlog(!showNewBlog)
+  }
 
   useEffect(() => {
     const loggedUserJSON = window.localStorage.getItem('loggedBlogappUser')
@@ -53,12 +57,13 @@ const App = () => {
           <div>
             <h5>Welcome, {user.name}</h5>
             <button onClick={handleLogOut}>Logout</button>
-            <NewBlog setBlogs={setBlogs} blogs={blogs} setNotification={setNotification} />
+            {showNewBlog && <NewBlog setBlogs={setBlogs} blogs={blogs} setNotification={setNotification} />}
+            <button onClick={handleNewBlog}>{showNewBlog ? 'Cancel' : 'New Blog'}</button>
             <Blogs blogs={blogs} />
           </div >
-          :
-          <Login setUser={setUser} setNotification={setNotification} />
+          : <Login setUser={setUser} setNotification={setNotification} />
       }
+
     </>
   )
 }

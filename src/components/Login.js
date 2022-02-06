@@ -44,7 +44,7 @@ const Login = ({ setUser, setNotification }) => {
 
   return (
     <form onSubmit={handleLogin}>
-      <h1>Log in</h1>
+      <h1>Login</h1>
       <div>
         <input
           type='text'
