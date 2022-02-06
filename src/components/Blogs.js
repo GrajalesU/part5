@@ -1,6 +1,6 @@
 import React from 'react'
 import Blog from './Blog'
-const Blogs = ({ blogs }) => {
+const Blogs = ({ blogs, setNotification }) => {
   return (
     <>
       <h2>blogs</h2>
@@ -10,7 +10,7 @@ const Blogs = ({ blogs }) => {
           if (a.likes > b.likes) return -1
           return 0
         }).map(blog =>
-          <Blog key={blog.id} blog={blog} />
+          <Blog key={blog.id} blog={blog} setNotification={setNotification} />
         )
       }
     </>

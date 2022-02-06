@@ -59,7 +59,7 @@ const App = () => {
             <button onClick={handleLogOut}>Logout</button>
             {showNewBlog && <NewBlog setBlogs={setBlogs} blogs={blogs} setNotification={setNotification} />}
             <button onClick={handleNewBlog}>{showNewBlog ? 'Cancel' : 'New Blog'}</button>
-            <Blogs blogs={blogs} />
+            <Blogs blogs={blogs} setNotification={setNotification} />
           </div >
           : <Login setUser={setUser} setNotification={setNotification} />
       }

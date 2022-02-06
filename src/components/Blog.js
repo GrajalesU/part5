@@ -5,8 +5,27 @@ const Blog = (props) => {
   const [blog, setBlog] = useState(props.blog)
 
   const handleLike = async () => {
-    const res = await blogService.like(blog)
-    setBlog(res)
+    try {
+      const res = await blogService.like(blog)
+      setBlog(res)
+      props.setNotification({
+        body: `You liked the ${blog.title} ${blog.author} blog`,
+        isError: false
+      })
+    } catch (e) {
+      props.setNotification({
+        body: e.response.data.error,
+        isError: true
+      })
+    } finally {
+      setTimeout(() => {
+        props.setNotification({
+          body: null,
+          isError: false
+        })
+      }, 5000)
+    }
+
   }
   return (
     < div className='blog'>
