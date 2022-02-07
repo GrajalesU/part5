@@ -1,3 +1,4 @@
+import propTypes from 'prop-types'
 import React, { useState } from 'react'
 import blogServices from '../services/blogs'
 const NewBlog = ({ setBlogs, blogs, setNotification }) => {
@@ -62,4 +63,9 @@ const NewBlog = ({ setBlogs, blogs, setNotification }) => {
     </form>)
 }
 
+NewBlog.propTypes = {
+  setBlogs: propTypes.func,
+  blogs: propTypes.array,
+  setNotification: propTypes.func
+}
 export default NewBlog

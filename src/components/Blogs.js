@@ -1,5 +1,8 @@
 import React from 'react'
 import Blog from './Blog'
+import propTypes from 'prop-types'
+
+
 const Blogs = ({ blogs, setNotification }) => {
   return (
     <>
@@ -15,6 +18,11 @@ const Blogs = ({ blogs, setNotification }) => {
       }
     </>
   )
+}
+
+Blogs.propTypes = {
+  blogs: propTypes.array,
+  setNotification: propTypes.func
 }
 
 export default Blogs

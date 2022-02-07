@@ -1,3 +1,5 @@
+import propTypes from 'prop-types'
+
 const Notification = ({ setNotification, body, isError }) => {
   if (body === null) return null
   return (
@@ -14,6 +16,12 @@ const Notification = ({ setNotification, body, isError }) => {
       </div>
     </div>
   )
+}
+
+Notification.propTypes = {
+  body: propTypes.string,
+  isError: propTypes.bool,
+  setNotification: propTypes.func
 }
 
 export default Notification

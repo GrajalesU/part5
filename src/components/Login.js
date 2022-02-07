@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import loginService from '../services/login'
 import blogService from '../services/blogs'
+import propTypes from 'prop-types'
 
 
 
@@ -67,5 +68,9 @@ const Login = ({ setUser, setNotification }) => {
     </form>)
 }
 
+Login.propTypes = {
+  setUser: propTypes.func,
+  setNotification: propTypes.func
+}
 
 export default Login
